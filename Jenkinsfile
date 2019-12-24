@@ -43,6 +43,24 @@ node {
             
         }
         sh """
+            docker run \
+                --rm \
+                --volumes-from ${container_name} \
+                alpine \
+                rm -rf /opt/${image_name}/config \
+                    /opt/${image_name}/mods \
+                    /opt/${image_name}/schematics \
+                    /opt/${image_name}/scripts && \
+                rm /opt/${image_name}/entrypoint.sh \
+                    /opt/${image_name}/ops.js \
+                    /opt/${image_name}/run-command \
+                    /opt/${image_name}/server.properties \
+                    /opt/${image_name}/server.zip \
+                    /opt/${image_name}/settings.cfg \
+                    /opt/${image_name}/whitelist.json \
+                    /opt/${image_name}/eula.txt 
+        """
+        sh """
             docker ${docker_cmd} \
                 ${detatched} \
                 --restart ${restart} \
