@@ -52,6 +52,9 @@ node {
                         /opt/${image_name}/ServerStartLinux.sh
             """
         }
+        catch (Exception e) { 
+       
+        }
     }
 
     stage('Build') {
