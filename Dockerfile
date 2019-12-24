@@ -3,7 +3,7 @@ FROM alpine
 ENV IMAGE_NAME="enigmatica2"
 WORKDIR /opt/${IMAGE_NAME}
 
-RUN apk update && apk add openjdk8
+RUN apk update && apk add openjdk8 && apk add tmux
 
 COPY ./server.zip /opt/${IMAGE_NAME}/
 
