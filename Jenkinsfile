@@ -46,8 +46,8 @@ node {
                         /opt/${image_name}/mods \
                         /opt/${image_name}/schematics \
                         /opt/${image_name}/scripts && \
-                    rm /opt/${image_name}/entrypoint.sh \
-                        /opt/${image_name}/ops.js \
+                    rm -f /opt/${image_name}/entrypoint.sh \
+                        /opt/${image_name}/ops.json \
                         /opt/${image_name}/run-command \
                         /opt/${image_name}/server.properties \
                         /opt/${image_name}/server.zip \
