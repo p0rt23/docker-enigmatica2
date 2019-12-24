@@ -54,7 +54,8 @@ node {
                         /opt/${image_name}/server.zip \
                         /opt/${image_name}/settings.cfg \
                         /opt/${image_name}/whitelist.json \
-                        /opt/${image_name}/eula.txt
+                        /opt/${image_name}/eula.txt \
+                        /opt/${image_name}/ServerStartLinux.sh
             """
             sh "docker rm ${container_name}"
         }
