@@ -13,4 +13,4 @@ RUN unzip /opt/${IMAGE_NAME}/server.zip -d /opt/${IMAGE_NAME} &&\
 COPY ./${IMAGE_NAME}/* /opt/${IMAGE_NAME}/
 
 EXPOSE 25565
-ENTRYPOINT ["./entrypoint.sh"]
+#ENTRYPOINT ["./entrypoint.sh"]
