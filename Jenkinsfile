@@ -42,7 +42,7 @@ node {
                     --rm \
                     --volumes-from ${container_name} \
                     alpine \
-                    rm -rf /opt/${image_name}/config \
+                    "rm -rf /opt/${image_name}/config \
                         /opt/${image_name}/mods \
                         /opt/${image_name}/schematics \
                         /opt/${image_name}/scripts && \
@@ -53,7 +53,7 @@ node {
                         /opt/${image_name}/server.zip \
                         /opt/${image_name}/settings.cfg \
                         /opt/${image_name}/whitelist.json \
-                        /opt/${image_name}/eula.txt 
+                        /opt/${image_name}/eula.txt"
             """
             sh "docker rm ${container_name}"
         }
