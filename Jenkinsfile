@@ -12,7 +12,7 @@ node {
     if (env.BRANCH_NAME == 'master') {
         image_tag      = version
         container_name = image_name
-        port           = 25565
+        port           = 25575
         restart        = "always"
         docker_cmd     = "run"
         detatched      = "-d"
@@ -20,7 +20,7 @@ node {
     else {
         image_tag      = "${version}-develop"
         container_name = "${image_name}-develop" 
-        port           = 25566
+        port           = 25576
         restart        = "no"
         docker_cmd     = "create"
         detatched      = ""
