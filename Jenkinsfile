@@ -27,15 +27,9 @@ node {
     }
 
     world_volume = "${container_name}"
- 
-    stage('Build') {
-        checkout scm
-        sh "cp $server_file ./server.zip"
-        sh "docker build -t p0rt23/${image_name}:${image_tag} ."
-    }
 
-    stage('Deploy') {
-        try {
+    stage('Clean') {
+       try {
             sh "docker stop ${container_name}"
             sh """
                 docker run \
@@ -57,6 +51,17 @@ node {
                         /opt/${image_name}/eula.txt \
                         /opt/${image_name}/ServerStartLinux.sh
             """
+        }
+    }
+
+    stage('Build') {
+        checkout scm
+        sh "cp $server_file ./server.zip"
+        sh "docker build -t p0rt23/${image_name}:${image_tag} ."
+    }
+
+    stage('Deploy') {
+        try {
             sh "docker rm ${container_name}"
         }
         catch (Exception e) { 
