@@ -129,7 +129,7 @@ start_server() {
 
     trap "/opt/enigmatica2/run-command stop" SIGINT SIGTERM
 
-    sleep 5
+    sleep 30
 
     tail -F /opt/enigmatica2/logs/latest.log& wait
 }

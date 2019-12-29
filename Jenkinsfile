@@ -6,8 +6,8 @@ node {
 
     // https://www.curseforge.com/minecraft/modpacks/enigmatica2expert/files
     def image_name     = 'enigmatica2'
-    def version        = '1.72b'
-    def server_file    = '/opt/volumes/files/Enigmatica2ExpertServer-1.72b.zip'
+    def version        = '1.73'
+    def server_file    = '/opt/volumes/files/Enigmatica2ExpertServer-1.73.zip'
     
     if (env.BRANCH_NAME == 'master') {
         image_tag      = version
