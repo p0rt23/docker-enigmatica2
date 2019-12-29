@@ -61,20 +61,25 @@ node {
         checkout scm
         sh "cp ${server_file} ./server.zip"
         sh "unzip server.zip -d server/"
-        sh """
-            docker run \
-                --rm \
-                --volumes-from ${container_name} \
-                -v /home/docker/volumes/jenkins/workspace/docker-enigmatica2_develop:/opt/workspace \
-                alpine \
-                cp -af \
-                    /opt/workspace/server/config \
-                    /opt/workspace/server/mods \
-                    /opt/workspace/server/schematics \
-                    /opt/workspace/server/scripts \
-                    /opt/workspace/enigmatica2/. \
-                    /opt/enigmatica2/ 
-        """
+        try {
+            sh """
+                docker run \
+                    --rm \
+                    --volumes-from ${container_name} \
+                    -v /home/docker/volumes/jenkins/workspace/docker-enigmatica2_develop:/opt/workspace \
+                    alpine \
+                    cp -af \
+                        /opt/workspace/server/config \
+                        /opt/workspace/server/mods \
+                        /opt/workspace/server/schematics \
+                        /opt/workspace/server/scripts \
+                        /opt/workspace/enigmatica2/. \
+                        /opt/enigmatica2/ 
+            """
+        }
+        catch (Exception e) { 
+            
+        }
         sh "docker build -t p0rt23/${image_name}:${image_tag} ."
     }
 
