@@ -67,12 +67,12 @@ node {
                 --volumes-from ${container_name} \
                 -v \$(pwd):/opt/workspace \
                 alpine \
-                cp -r \
+                cp -a \
                     /opt/workspace/server/config \
                     /opt/workspace/server/mods \
                     /opt/workspace/server/schematics \
                     /opt/workspace/server/scripts \
-                    /opt/workspace/enigmatica2/* \
+                    /opt/workspace/enigmatica2/. \
                     /opt/enigmatica2/ && \
                 chmod +x /opt/enigmatica2/*.sh
         """
