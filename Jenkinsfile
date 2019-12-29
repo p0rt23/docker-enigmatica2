@@ -67,7 +67,7 @@ node {
                 --volumes-from ${container_name} \
                 -v /home/docker/volumes/jenkins/workspace/docker-enigmatica2_develop:/opt/workspace \
                 alpine \
-                cp -a \
+                cp -af \
                     /opt/workspace/server/config \
                     /opt/workspace/server/mods \
                     /opt/workspace/server/schematics \
