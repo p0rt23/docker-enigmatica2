@@ -1,6 +1,12 @@
 FROM alpine
 
-RUN apk update && apk add openjdk8 && apk add tmux && apk add bash
+WORKDIR /opt/enigmatica2
+
+RUN apk update && \
+    apk add bash && \
+    apk add openjdk8 && \ 
+    apk add curl && \ 
+    apk add tmux  
 
 EXPOSE 25565
-ENTRYPOINT ["/opt/enigmatica2/ServerStartLinux.sh"]
+ENTRYPOINT ["./ServerStartLinux.sh"]
