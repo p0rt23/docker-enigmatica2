@@ -74,7 +74,7 @@ node {
                     /opt/workspace/server/scripts \
                     /opt/workspace/enigmatica2/. \
                     /opt/enigmatica2/ && \
-                chmod +x /opt/enigmatica2/*.sh
+                chmod +x /opt/enigmatica2/ServerStartLinux.sh
         """
         sh "docker build -t p0rt23/${image_name}:${image_tag} ."
     }
