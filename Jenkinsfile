@@ -60,6 +60,22 @@ node {
     stage('Build') {
         checkout scm
         sh "cp $server_file ./server.zip"
+        sh "unzip server.zip -d server/"
+        sh """
+            docker run \
+                --rm \
+                --volumes-from ${container_name} \
+                -v $(pwd):/opt/workspace
+                alpine \
+                cp -r \
+                    /opt/workspace/server/config \
+                    /opt/workspace/server/mods \
+                    /opt/workspace/server/schematics \
+                    /opt/workspace/server/scripts \
+                    /opt/workspace/enigmatica2/* \
+                    /opt/enigmatica2/ && \
+                chmod +x /opt/enigmatica2/*.sh
+        """
         sh "docker build -t p0rt23/${image_name}:${image_tag} ."
     }
 
