@@ -65,7 +65,7 @@ node {
             docker run \
                 --rm \
                 --volumes-from ${container_name} \
-                -v \$(pwd):/opt/workspace
+                -v \$(pwd):/opt/workspace \
                 alpine \
                 cp -r \
                     /opt/workspace/server/config \
