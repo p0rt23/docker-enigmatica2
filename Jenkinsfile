@@ -59,13 +59,13 @@ node {
 
     stage('Build') {
         checkout scm
-        sh "cp $server_file ./server.zip"
+        sh "cp ${server_file} ./server.zip"
         sh "unzip server.zip -d server/"
         sh """
             docker run \
                 --rm \
                 --volumes-from ${container_name} \
-                -v $(pwd):/opt/workspace
+                -v \$(pwd):/opt/workspace
                 alpine \
                 cp -r \
                     /opt/workspace/server/config \
