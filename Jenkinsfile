@@ -6,8 +6,8 @@ node {
 
     // https://www.curseforge.com/minecraft/modpacks/enigmatica2expert/files
     def image_name     = 'enigmatica2'
-    def version        = '1.74'
-    def server_file    = '/opt/volumes/files/Enigmatica2ExpertServer-1.74.zip'
+    def version        = '1.75'
+    def server_file    = '/opt/volumes/files/Enigmatica2ExpertServer-1.75.zip'
     
     if (env.BRANCH_NAME == 'master') {
         image_tag      = version
@@ -66,7 +66,7 @@ node {
                 docker run \
                     --rm \
                     --volumes-from ${container_name} \
-                    -v /home/docker/volumes/jenkins/workspace/docker-enigmatica2_develop:/opt/workspace \
+                    -v /home/docker/volumes/jenkins/workspace/docker-enigmatica2_${env.BRANCH_NAME}:/opt/workspace \
                     alpine \
                     cp -af \
                         /opt/workspace/server/config \
